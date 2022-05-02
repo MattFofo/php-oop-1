@@ -1,18 +1,19 @@
 <?php 
    class Movie {
-      public $title;
-      public $year;
-      public $genre;
-      public $rating;
+      private $title;
+      private $year;
+      private $genre;
+      private $rating;
       public $description;
       public $thumb;
 
       public function __construct($_title, $_genre, $_year)
       {
-         return $this->title = $_title;
-         return $this->genre = $_genre;
-         return $this->year = $_year;
-         
+         return [
+            $this->title = $_title,
+            $this->genre = $_genre,
+            $this->year = $_year,
+         ];
       }
 
       public function setTitle($_title)
@@ -70,7 +71,7 @@
 ?>
 
 <h1>Titolo: <?= $matrix->getTitle() ?></h1>
-<img src="<?= $matrix->getThumb() ?>" alt="">
+<img src="<?= $matrix->getThumb() ?>" alt="<?= $matrix->getTitle() ?>">
 <h2>Rating: <?= $matrix->getRating() ?></h2>
 <p>Description: <?= $matrix->getDescription() ?></p>
 
